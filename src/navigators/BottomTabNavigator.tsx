@@ -2,14 +2,7 @@ import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import * as React from 'react';
 import {Text, View} from 'react-native';
 import Feather from 'react-native-vector-icons/Feather';
-
-function HomeScreen() {
-  return (
-    <View style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
-      <Text>Home!</Text>
-    </View>
-  );
-}
+import HomeScreen from '../screens/HomeScreen';
 
 function ProfileScreen() {
   return (
@@ -29,9 +22,7 @@ export default function BottomTabNavigator() {
         component={HomeScreen}
         options={{
           tabBarLabel: 'Home',
-          tabBarIcon: ({color, size}) => (
-            <Feather name="home" size={24} />
-          ),
+          tabBarIcon: ({color, size}) => <Feather name="home" size={24} />,
         }}
       />
       <Tab.Screen
@@ -39,9 +30,7 @@ export default function BottomTabNavigator() {
         component={ProfileScreen}
         options={{
           tabBarLabel: 'Profile',
-          tabBarIcon: ({color, size}) => (
-            <Feather name="grid"  size={24} />
-          ),
+          tabBarIcon: ({color, size}) => <Feather name="grid" size={24} />,
         }}
       />
     </Tab.Navigator>
