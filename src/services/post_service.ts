@@ -2,14 +2,14 @@ import baseService from './base_service';
 
 export const postApiSlice = baseService.injectEndpoints({
   endpoints: builder => ({
-    getPost: builder.query<any, void>({
+    getPost: builder.query<Post[], void>({
       query: () => ({
         url: `/posts`,
         method: 'GET',
       }),
     }),
 
-    getPostComments: builder.query<any, {postId: string}>({
+    getPostComments: builder.query<Comment[], {postId: string}>({
       query: ({postId}) => ({
         url: `/comments?postId=${postId}`,
         method: 'GET',

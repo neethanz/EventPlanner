@@ -1,1 +1,1 @@
-export { default as baseService } from "./base_service";
+export {default as baseService} from './base_service';

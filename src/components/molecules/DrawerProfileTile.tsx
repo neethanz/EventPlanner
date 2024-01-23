@@ -6,7 +6,7 @@ import Color from '@/utils/colors';
 import {CircleAvathar} from '../atoms';
 import {AVATHAR_URL} from '@env';
 
-export default function OrganizersTile() {
+export default function DrawerProfileTile() {
   return (
     <View style={styles.container}>
       <View style={styles.inner_container}>
@@ -16,12 +16,6 @@ export default function OrganizersTile() {
           <Text style={com_styles.body_text}>Julia</Text>
         </View>
       </View>
-      <MaterialCommunityIcons
-        name="message-minus-outline"
-        size={24}
-        style={{marginHorizontal: 8}}
-        color={Color.dark}
-      />
     </View>
   );
 }

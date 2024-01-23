@@ -1,10 +1,18 @@
 import React from 'react';
-import {NavigationContainer} from '@react-navigation/native';
-import DrawerNavigator from './src/navigators/DrawerNavigator';
+import {DefaultTheme, NavigationContainer} from '@react-navigation/native';
+import {DrawerNavigator} from '@/navigators';
 
 export default function App() {
+  const navTheme = {
+    ...DefaultTheme,
+    colors: {
+      ...DefaultTheme.colors,
+      background: 'transparent',
+    },
+  };
+
   return (
-    <NavigationContainer>
+    <NavigationContainer theme={navTheme}>
       <DrawerNavigator />
     </NavigationContainer>
   );

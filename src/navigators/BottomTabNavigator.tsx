@@ -1,28 +1,28 @@
+import {HomeScreen, ProfileScreen} from '@/screens';
+import {Colors} from '@/utils';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
-import * as React from 'react';
-import {Text, View} from 'react-native';
+import React from 'react';
 import Feather from 'react-native-vector-icons/Feather';
-import HomeScreen from '../screens/HomeScreen';
-
-function ProfileScreen() {
-  return (
-    <View style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
-      <Text>Profile!</Text>
-    </View>
-  );
-}
 
 const Tab = createBottomTabNavigator();
 
 export default function BottomTabNavigator() {
   return (
-    <Tab.Navigator screenOptions={{headerShown: false}}>
+    <Tab.Navigator
+      screenOptions={{
+        tabBarStyle: {backgroundColor: Colors.dark},
+        tabBarInactiveTintColor: '#757779',
+        tabBarActiveTintColor: '#757779',
+        headerShown: false,
+      }}>
       <Tab.Screen
         name="Home"
         component={HomeScreen}
         options={{
           tabBarLabel: 'Home',
-          tabBarIcon: ({color, size}) => <Feather name="home" size={24} />,
+          tabBarIcon: ({focused, color}) => (
+            <Feather name="home" size={focused ? 28 : 24} color={color} />
+          ),
         }}
       />
       <Tab.Screen
@@ -30,7 +30,9 @@ export default function BottomTabNavigator() {
         component={ProfileScreen}
         options={{
           tabBarLabel: 'Profile',
-          tabBarIcon: ({color, size}) => <Feather name="grid" size={24} />,
+          tabBarIcon: ({focused, color}) => (
+            <Feather name="grid" size={focused ? 28 : 24} color={color} />
+          ),
         }}
       />
     </Tab.Navigator>

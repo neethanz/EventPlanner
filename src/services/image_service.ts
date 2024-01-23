@@ -2,14 +2,13 @@ import baseService from './base_service';
 
 export const eventSliceApi = baseService.injectEndpoints({
   endpoints: builder => ({
-    getAllTasks: builder.query({
+    getImages: builder.query<Photo[], void>({
       query: () => ({
-        url: `/tasks`,
+        url: `/photos`,
         method: 'GET',
       }),
-      transformResponse: (_response: any) => _response,
     }),
   }),
 });
 
-export const {useGetAllTasksQuery} = eventSliceApi;
+export const {useGetImagesQuery} = eventSliceApi;

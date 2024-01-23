@@ -5,13 +5,14 @@ import {
   createApi,
   fetchBaseQuery,
 } from '@reduxjs/toolkit/query/react';
+import {BASE_URL} from '@env';
 
 const dynamicBaseQuery: BaseQueryFn<
   string | FetchArgs,
   unknown,
   FetchBaseQueryError
 > = async (args, WebApi, extraOptions) => {
-  const baseUrl = 'https://jsonplaceholder.typicode.com';
+  const baseUrl = BASE_URL;
   const rawBaseQuery = fetchBaseQuery({
     baseUrl: baseUrl,
   });
@@ -25,6 +26,7 @@ const baseService = createApi({
   refetchOnReconnect: true,
   refetchOnFocus: true,
   endpoints: builder => ({}),
+  // keep data in cache
   keepUnusedDataFor: 0,
 });
 

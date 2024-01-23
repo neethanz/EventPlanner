@@ -1,38 +1,23 @@
-import {ScrollView, StyleSheet, Text, Touchable, View} from 'react-native';
+import {ImageCarousel, PostCounts, UpcomingEvent} from '@/components/molecules';
+import {OrganizersList, Photos} from '@/components/organisms';
+import {com_styles} from '@/utils';
 import React from 'react';
-import {MainSlider} from '../components/molecules';
-import OrganizersTile from '../components/molecules/OrganizersTile';
-import NewsCards from '../components/molecules/NewsCards';
-import {TouchableOpacity} from 'react-native-gesture-handler';
-import {useNavigation} from '@react-navigation/native';
+import {SafeAreaView, View} from 'react-native';
+import {ScrollView} from 'react-native-gesture-handler';
+import {API_URL, API_TOKEN} from '@env';
 
 export default function HomeScreen() {
-  const navigation = useNavigation();
   return (
-    <View>
-      <MainSlider />
-      <OrganizersTile />
-      <OrganizersTile />
-      <OrganizersTile />
-      <OrganizersTile />
-
-      <ScrollView horizontal showsHorizontalScrollIndicator={false}>
-        {[1, 2, 3, 4, 5].map(item => (
-          <NewsCards key={item} />
-        ))}
+    <SafeAreaView>
+      <ScrollView showsVerticalScrollIndicator={false}>
+        <ImageCarousel />
+        <View style={com_styles.page_container}>
+          <UpcomingEvent />
+          <OrganizersList />
+          <Photos />
+          <PostCounts />
+        </View>
       </ScrollView>
-      <TouchableOpacity
-        onPress={() => navigation.navigate("Posts")}
-        style={{alignItems: 'center', justifyContent: 'center', height: 100}}>
-        <Text
-          style={{
-            textAlign: 'center',
-          }}>
-          {16} Post
-        </Text>
-      </TouchableOpacity>
-    </View>
+    </SafeAreaView>
   );
 }
-
-const styles = StyleSheet.create({});
